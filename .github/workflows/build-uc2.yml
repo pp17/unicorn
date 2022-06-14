@@ -31,6 +31,17 @@ jobs:
               archiver: '7za a',
               generators: 'Ninja'
             }
+          - { 
+              os: macos-11,
+              arch: armeabi-v7a,
+              python-arch: x86_64,
+              python-ver: '3.8',
+              name: 'android cmake',
+              artifact: 'Android-armeabi-v7a.7z',
+              build_type: 'Debug',
+              archiver: '7za a',
+              generators: 'Ninja'
+            }
         compiler: [ gcc ]
     steps:
     - uses: actions/checkout@v2
@@ -79,8 +90,8 @@ jobs:
     - name: Upload to release
       uses: ncipollo/release-action@v1
       with:
-        name: R${{ env.DATE }}
+        name: ${{ matrix.config.artifact }}
         artifacts: ./${{ matrix.config.artifact }}
         allowUpdates: true
-        tag: R${{ env.DATE }}
+        tag: R_${{ matrix.config.artifact }}
         token: ${{ secrets.GITHUB_TOKEN }}
