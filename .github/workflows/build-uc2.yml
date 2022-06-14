@@ -155,3 +155,12 @@ jobs:
       with:
         path: ./${{ matrix.config.artifact }}
         name: ${{ matrix.config.artifact }}
+
+    - name: Upload to release
+      uses: ncipollo/release-action@v1
+      with:
+        name: R${{ env.DATE }}
+        artifacts: ./${{ matrix.config.artifact }}
+        allowUpdates: true
+        tag: R${{ env.DATE }}
+        token: ${{ secrets.GITHUB_TOKEN }}
