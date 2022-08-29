@@ -77,7 +77,8 @@ jobs:
       if: contains(matrix.config.name, 'android')
       shell: bash
       run: |
-        brew install p7zip cmake@3.23.2 ninja
+        brew install p7zip ninja
+        brew switch cmake 3.23.2
         mkdir build
         mkdir instdir
         cmake . -DCMAKE_TOOLCHAIN_FILE="$ANDROID_HOME/ndk/21.4.7075529/build/cmake/android.toolchain.cmake" \
