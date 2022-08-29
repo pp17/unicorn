@@ -77,8 +77,11 @@ jobs:
       if: contains(matrix.config.name, 'android')
       shell: bash
       run: |
-        brew install p7zip ninja
-        brew install https://github.com/Homebrew/homebrew-core/raw/777f4d4ebb00ca2b38b00ef32ee7f30704b61f35/Formula/cmake.rb
+        brew install p7zip ninja wget
+        #brew install https://github.com/Homebrew/homebrew-core/raw/777f4d4ebb00ca2b38b00ef32ee7f30704b61f35/Formula/cmake.rb
+        wget https://github.com/Homebrew/homebrew-core/raw/777f4d4ebb00ca2b38b00ef32ee7f30704b61f35/Formula/cmake.rb
+        brew install cmake.rb
+        rm cmake.rb
         mkdir build
         mkdir instdir
         cmake . -DCMAKE_TOOLCHAIN_FILE="$ANDROID_HOME/ndk/21.4.7075529/build/cmake/android.toolchain.cmake" \
