@@ -292,6 +292,39 @@ jobs:
               archiver: '7za a',
               generators: 'Ninja'
             }
+            - { 
+              os: macos-11,
+              arch: x86,
+              python-arch: x86_64,
+              python-ver: '3.8',
+              name: 'android cmake',
+              artifact: 'Android-x86.7z',
+              build_type: 'Release',
+              archiver: '7za a',
+              generators: 'Ninja'
+            }
+          - { 
+              os: macos-11,
+              arch: armeabi-v7a,
+              python-arch: x86_64,
+              python-ver: '3.8',
+              name: 'android cmake',
+              artifact: 'Android-armeabi-v7a.7z',
+              build_type: 'Release',
+              archiver: '7za a',
+              generators: 'Ninja'
+            }
+          - { 
+              os: macos-11,
+              arch: arm64-v8a,
+              python-arch: x86_64,
+              python-ver: '3.8',
+              name: 'android cmake',
+              artifact: 'Android-arm64-v8a.7z',
+              build_type: 'Release',
+              archiver: '7za a',
+              generators: 'Ninja'
+            }
         compiler: [ gcc ]
     steps:
     - uses: actions/checkout@v2
