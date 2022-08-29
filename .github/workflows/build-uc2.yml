@@ -79,9 +79,13 @@ jobs:
       run: |
         brew install p7zip ninja wget
         #brew install https://github.com/Homebrew/homebrew-core/raw/777f4d4ebb00ca2b38b00ef32ee7f30704b61f35/Formula/cmake.rb
-        wget https://raw.githubusercontent.com/Homebrew/homebrew-core/777f4d4ebb00ca2b38b00ef32ee7f30704b61f35/Formula/cmake.rb
+        #wget https://raw.githubusercontent.com/Homebrew/homebrew-core/777f4d4ebb00ca2b38b00ef32ee7f30704b61f35/Formula/cmake.rb
+        git clone https://github.com/Homebrew/homebrew-core.git
+        cd homebrew-core
+        git checkout ada036ff43e82206bd4d940fecb3253a0150395a
+        cd Formula        
         brew install cmake.rb
-        rm cmake.rb
+        cd ../..
         mkdir build
         mkdir instdir
         cmake . -DCMAKE_TOOLCHAIN_FILE="$ANDROID_HOME/ndk/21.4.7075529/build/cmake/android.toolchain.cmake" \
