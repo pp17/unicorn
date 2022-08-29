@@ -78,7 +78,7 @@ jobs:
       shell: bash
       run: |
         brew install p7zip ninja
-        brew switch cmake 3.23.2
+        brew info cmake
         mkdir build
         mkdir instdir
         cmake . -DCMAKE_TOOLCHAIN_FILE="$ANDROID_HOME/ndk/21.4.7075529/build/cmake/android.toolchain.cmake" \
